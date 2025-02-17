@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://f8a3wnhw4gd3"]
+
+[ext_resource type="Script" path="res://Menu/menu.gd" id="1_aso0m"]
+[ext_resource type="PackedScene" uid="uid://cfgx7e1r70mgl" path="res://Menu/parallax_background.tscn" id="2_ik6ht"]
+[ext_resource type="AudioStream" uid="uid://bgfvuofflogks" path="res://Menu/Menu_music.ogg" id="3_bysgh"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_aso0m")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 348.0
+offset_top = 162.0
+offset_right = 771.0
+offset_bottom = 275.0
+theme_override_font_sizes/font_size = 50
+text = "Играть"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 348.0
+offset_top = 295.0
+offset_right = 771.0
+offset_bottom = 408.0
+theme_override_font_sizes/font_size = 50
+text = "Выход"
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(565, 287)
+stream = ExtResource("3_bysgh")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_ik6ht")]
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
